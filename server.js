@@ -1,20 +1,24 @@
+// import dotenv
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { readdirSync } = require("fs");
-require("dotenv").config();
+
 
 // app
 const app = express();
 
 // db
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false,
+    useFindAndModify: true,
     useUnifiedTopology: true,
   })
   .then(() => console.log("DB CONNECTED"))

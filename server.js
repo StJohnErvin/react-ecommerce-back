@@ -1,3 +1,7 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
+
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
@@ -11,7 +15,7 @@ const app = express();
 
 // db
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
